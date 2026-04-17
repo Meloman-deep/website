@@ -1,0 +1,164 @@
+﻿:root {
+    /* Ваша кольорова палітра */
+    --color-dark: #180E30;
+    --color-blue: #0C1040;
+    --color-accent: #A54DC6;
+    
+    --color-text: #ffffff;
+    --color-text-muted: #b3b0c4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2a1b54 50%, var(--color-blue) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Контейнер обмежує ширину, щоб на ПК він виглядав як мобільний застосунок (стиль Linktree) */
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.profile { animation: fadeInUp 0.8s ease backwards; animation-delay: 0.1s; }
+.album-card { animation: fadeInUp 0.8s ease backwards; animation-delay: 0.3s; }
+.links { animation: fadeInUp 0.8s ease backwards; animation-delay: 0.5s; }
+footer { animation: fadeInUp 0.8s ease backwards; animation-delay: 0.7s; }
+
+.profile {
+    text-align: center;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, var(--color-blue), var(--color-accent));
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 800;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 25px rgba(165, 77, 198, 0.5);
+    animation: neonPulse 2.5s infinite alternate ease-in-out;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px rgba(165, 77, 198, 0.6);
+}
+
+.bio {
+    color: var(--color-text-muted);
+    font-size: 15px;
+}
+
+/* Оформлення картки альбому з ефектом відблиску (Glassmorphism) */
+.album-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(165, 77, 198, 0.4);
+    border-radius: 24px;
+    padding: 24px 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.album-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+
+.album-subtitle {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 50px;
+    background: rgba(12, 16, 64, 0.6);
+    border: 1px solid var(--color-accent);
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.link-btn i {
+    font-size: 22px;
+}
+
+.link-btn:hover, .link-btn:active {
+    background: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(165, 77, 198, 0.5);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Анімації --- */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(165, 77, 198, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(165, 77, 198, 0.9), 0 0 20px rgba(165, 77, 198, 0.6) inset;
+    }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
